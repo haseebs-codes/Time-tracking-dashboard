@@ -1,0 +1,80 @@
+:root {
+  --primary-purple-600: hsl(246, 80%, 60%);
+  --primary-orange-300: hsl(15, 100%, 70%);
+  --primary-blue-300: hsl(195, 74%, 62%);
+  --primary-pink-400: hsl(348, 100%, 68%);
+  --primary-green-400: hsl(145, 58%, 55%);
+  --primary-purple-700: hsl(264, 64%, 52%);
+  --primary-yellow-300: hsl(43, 84%, 65%);
+  --neutral-navy-950: hsl(226, 43%, 10%);
+  --neutral-navy-900: hsl(235, 46%, 20%);
+  --neutral-purple-500: hsl(235, 45%, 61%);
+  --neutral-navy-200: hsl(236, 100%, 87%);
+  --error-bg: hsl(5, 100%, 95%);
+  --error-text: hsl(4, 100%, 67%);
+  --font-family-main: Rubik, sans-serif;
+  --font-size-x-small: 0.6875rem;
+  --font-size-small: 0.75rem;
+  --font-size-base: 1.125rem;
+  --font-size-large: 1.125rem;
+  --font-size-x-large: 1.25rem;
+  --font-size-2x-large: 1.5rem;
+  --font-size-3x-large: 1.875rem;
+  --font-size-4x-large: 2rem;
+  --font-weight-thin: 100;
+  --font-weight-x-light: 200;
+  --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-x-bold: 800;
+  --font-weight-2x-bold: 900;
+  --padding-x-small: 0.25em;
+  --padding-small: 0.5em;
+  --padding-base: 1em;
+  --padding-large: 1.5em;
+  --padding-x-large: 2em;
+  --padding-2x-large: 2.5em;
+  --margin-x-small: 0.25rem;
+  --margin-small: 0.5rem;
+  --margin-base: 1rem;
+  --margin-large: 1.5rem;
+  --margin-x-large: 2rem;
+  --margin-2x-large: 2.5rem;
+  --radius-small: 8px;
+  --radius-base: 12px;
+  --radius-large: 16px;
+  --radius-x-large: 20px;
+  --radius-2x-large: 28px;
+  --radius-full: 50%;
+}
+
+/* Josh Comeau Reset 
+ https://www.joshwcomeau.com/css/custom-css-reset/ */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+.attribution {
+  font-size: 0.6875rem;
+  text-align: center;
+}
+
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
