@@ -1,25 +1,131 @@
 @use '../variables' as *;
 @use '../functions' as *;
+@use '../base' as *;
 @use '../components/buttons' as *;
 
+//? Profile Card
 @mixin card {
-  background-color: white;
-  border-radius: var(--radius-large);
-  padding: var(--padding-base) var(--padding-large);
-  & .title {
-    color: black;
-    margin-block-end: var(--margin-base);
-  }
-  & .description {
-    font-weight: var(--font-weight-regular);
-    color: black;
 
-    & span {
-      font-weight: var(--font-weight-bold);
+  //? Global Card Styles
+  @include grid;
+  background-color: var(--neutral-navy-900);
+  border-radius: var(--radius-large);
+  margin: var(--margin-large);
+  justify-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+
+  //? Inner Card Styles
+  #{&}__inner{
+    @include flex;
+    justify-content: flex-start;
+    gap: var(--padding-base);
+    background-color: var(--primary-purple-600);
+    padding: var(--padding-large);
+    border-radius: var(--radius-large);
+  }
+
+  //? Profile Name Styles
+  #{&}__name{
+    & p {
+      color: var(--neutral-navy-200);
+      font-size: var(--font-size-small);
+    }
+    & h1{
+      color: white;
+      font-size: var(--font-size-2x-large);
+      font-weight: var(--font-weight-light);
+    }
+  }
+
+  //? Profile Avatar Styles
+  & img {
+    width: clamp(2rem, calc(3.5rem + 2.5vw), 4rem);
+    border: white solid 3px;
+    border-radius: var(--radius-full);
+  }
+
+  //? Filter Button Styles
+  #{&}__filters{
+    @include flex;
+    justify-content: space-evenly;
+
+    & button {
+      @include btn;
+      color: var(--neutral-navy-200);
+      background: none;
+      border: none;
+      &:hover, &:focus-visible {
+        color: white;
+        outline: transparent;
+      }
     }
   }
 }
 
-.card{
-  @include card()
+@mixin filter-card  {
+  background:
+  top
+  -0.6rem
+  right
+  0.8rem
+  no-repeat
+  var(--primary-orange-300)
+  url(../../../../images/icon-work.svg);
+  padding-block-start: var(--padding-2x-large);
+  border-radius: var(--radius-large);
+  margin: var(--margin-large);
+
+  #{&}__inner {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    background-color: var(--neutral-navy-900);
+    padding: var(--padding-base);
+    border-radius: var(--radius-large);
+  }
+
+  #{&}__inner--left {
+    color: white;
+    & h2 {
+      font-weight: var(--font-weight-light);
+      font-size: var(--font-size-2x-large);
+    }
+    & p {
+      font-weight: var(--font-weight-medium);
+    }
+  }
+
+  #{&}__inner--right {
+    display: grid;
+    gap: var(--padding-base);
+    justify-content: end;
+    justify-items: end;
+    & p {
+      color: var(--neutral-navy-200);
+      font-weight: var(--font-weight-light);
+      font-size: var(--font-size-small)
+    }
+  }
+
+  & button {
+    @include btn;
+    padding: var(--padding-x-small) 0;
+    background: none;
+    border: none;
+    position: relative;
+    fill: var(--neutral-navy-200);
+    &:hover, &:focus-visible {
+      fill: white;
+      outline: transparent;
+    }
+
+    //? Expand the clickable area
+    &::before {
+      content: '';
+      inset: -25px;
+      position: absolute;
+    }
+  }
+
 }

@@ -4,6 +4,21 @@
 @use "./base" as *;
 @use "./functions" as *;
 @use "./components/buttons" as *;
+@use "./components/cards" as *;
+
+html {
+  font-family: var(--font-family-main);
+  @include flex;
+  min-height: 100dvh;
+}
+
+.profile-card {
+  @include card;
+}
+
+.filter-card {
+  @include filter-card;
+}
 
 // Frontend Mentor attribution
 .attribution { font-size: 0.6875rem; text-align: center; }

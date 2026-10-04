@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
 :root {
   --primary-purple-600: hsl(246, 80%, 60%);
   --primary-orange-300: hsl(15, 100%, 70%);
@@ -50,7 +52,7 @@
   --radius-full: 50%;
 }
 
-/* Josh Comeau Reset 
+/* Josh Comeau Reset
  https://www.joshwcomeau.com/css/custom-css-reset/ */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -68,6 +70,154 @@
 body {
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
+}
+
+img, picture, svg {
+  display: block;
+  max-width: 100%;
+}
+
+ button {
+  font: inherit;
+}
+
+p, h1, h2 {
+  overflow-wrap: break-word;
+}
+
+p {
+  text-wrap: pretty;
+}
+
+h1, h2 {
+  text-wrap: balance;
+}
+
+html {
+  font-family: var(--font-family-main);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100dvh;
+}
+
+.profile-card {
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  background-color: var(--neutral-navy-900);
+  border-radius: var(--radius-large);
+  margin: var(--margin-large);
+  justify-items: stretch;
+  grid-template-columns: minmax(0, 1fr);
+  overflow: hidden;
+}
+.profile-card .profile-card__inner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--padding-base);
+  background-color: var(--primary-purple-600);
+  padding: var(--padding-large);
+  border-radius: var(--radius-large);
+}
+.profile-card .profile-card__name p {
+  color: var(--neutral-navy-200);
+  font-size: var(--font-size-small);
+}
+.profile-card .profile-card__name h1 {
+  color: white;
+  font-size: var(--font-size-2x-large);
+  font-weight: var(--font-weight-light);
+}
+.profile-card img {
+  width: clamp(2rem, 3.5rem + 2.5vw, 4rem);
+  border: white solid 3px;
+  border-radius: var(--radius-full);
+}
+.profile-card .profile-card__filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.profile-card .profile-card__filters button {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: var(--padding-large) var(--padding-base);
+  border-radius: var(--radius-small);
+  background-color: #e2e2e2;
+  transition: 0.2s;
+  color: var(--neutral-navy-200);
+  background: none;
+  border: none;
+}
+.profile-card .profile-card__filters button:hover, .profile-card .profile-card__filters button:focus-visible {
+  color: white;
+  outline: transparent;
+}
+
+.filter-card {
+  background: top -0.6rem right 0.8rem no-repeat var(--primary-orange-300) url(../../../../images/icon-work.svg);
+  padding-block-start: var(--padding-2x-large);
+  border-radius: var(--radius-large);
+  margin: var(--margin-large);
+}
+.filter-card .filter-card__inner {
+  display: grid;
+  align-items: center;
+  grid-template-columns: 1fr 1fr;
+  background-color: var(--neutral-navy-900);
+  padding: var(--padding-base);
+  border-radius: var(--radius-large);
+}
+.filter-card .filter-card__inner--left {
+  color: white;
+}
+.filter-card .filter-card__inner--left h2 {
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-2x-large);
+}
+.filter-card .filter-card__inner--left p {
+  font-weight: var(--font-weight-medium);
+}
+.filter-card .filter-card__inner--right {
+  display: grid;
+  gap: var(--padding-base);
+  justify-content: end;
+  justify-items: end;
+}
+.filter-card .filter-card__inner--right p {
+  color: var(--neutral-navy-200);
+  font-weight: var(--font-weight-light);
+  font-size: var(--font-size-small);
+}
+.filter-card button {
+  text-decoration: none;
+  cursor: pointer;
+  display: inline-block;
+  border: 0;
+  padding: var(--padding-large) var(--padding-base);
+  border-radius: var(--radius-small);
+  background-color: #e2e2e2;
+  transition: 0.2s;
+  padding: var(--padding-x-small) 0;
+  background: none;
+  border: none;
+  position: relative;
+  fill: var(--neutral-navy-200);
+}
+.filter-card button:hover, .filter-card button:focus-visible {
+  fill: white;
+  outline: transparent;
+}
+.filter-card button::before {
+  content: "";
+  inset: -25px;
+  position: absolute;
 }
 
 .attribution {
