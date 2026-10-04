@@ -23,10 +23,10 @@
 }
 
 
-/* Josh Comeau Reset 
+/* Josh Comeau Reset
  https://www.joshwcomeau.com/css/custom-css-reset/ */
 
-// more-intuitive box-sizing model // 
+// more-intuitive box-sizing model //
 *, *::before, *::after {
   box-sizing: border-box;
 }
@@ -97,4 +97,5 @@ ul{
 @mixin grid () {
   display: grid;
   align-content: center;
+  justify-items: center;
 }
