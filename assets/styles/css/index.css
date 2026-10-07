@@ -99,22 +99,38 @@ html {
   justify-content: center;
   align-items: center;
   min-height: 100dvh;
+  background-color: var(--neutral-navy-950);
+  padding: var(--padding-x-large);
+}
+
+main {
+  display: grid;
+  gap: var(--padding-base);
+}
+@media (width >= 48rem) {
+  main {
+    justify-items: stretch;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--padding-x-large);
+    max-width: 65rem;
+  }
 }
 
 .profile-card {
   display: grid;
-  align-content: center;
-  justify-items: center;
   background-color: var(--neutral-navy-900);
   border-radius: var(--radius-large);
-  margin: var(--margin-large);
   justify-items: stretch;
   grid-template-columns: minmax(0, 1fr);
   overflow: hidden;
 }
+@media (width >= 24rem) {
+  .profile-card {
+    grid-template-rows: 1fr auto;
+  }
+}
 .profile-card .profile-card__inner {
   display: flex;
-  justify-content: center;
   align-items: center;
   justify-content: flex-start;
   gap: var(--padding-base);
@@ -122,13 +138,20 @@ html {
   padding: var(--padding-large);
   border-radius: var(--radius-large);
 }
+@media (width >= 24rem) {
+  .profile-card .profile-card__inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--padding-large);
+  }
+}
 .profile-card .profile-card__name p {
   color: var(--neutral-navy-200);
   font-size: var(--font-size-small);
 }
 .profile-card .profile-card__name h1 {
   color: white;
-  font-size: var(--font-size-2x-large);
+  font-size: clamp(1rem, 1.25rem + 1.25vw, 2rem);
   font-weight: var(--font-weight-light);
 }
 .profile-card img {
@@ -138,9 +161,15 @@ html {
 }
 .profile-card .profile-card__filters {
   display: flex;
-  justify-content: center;
-  align-items: center;
   justify-content: space-evenly;
+}
+@media (width >= 24rem) {
+  .profile-card .profile-card__filters {
+    gap: var(--padding-base);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: var(--padding-base) var(--padding-x-large);
+  }
 }
 .profile-card .profile-card__filters button {
   text-decoration: none;
@@ -159,41 +188,63 @@ html {
   color: white;
   outline: transparent;
 }
+@media (width >= 24rem) {
+  .profile-card .profile-card__filters button {
+    padding: 0;
+  }
+}
+@media (width >= 24rem) {
+  .profile-card {
+    grid-row: span 2;
+  }
+}
 
 .filter-card {
   background: top -0.6rem right 0.8rem no-repeat var(--primary-orange-300) url(../../../../images/icon-work.svg);
   padding-block-start: var(--padding-2x-large);
   border-radius: var(--radius-large);
-  margin: var(--margin-large);
 }
 .filter-card .filter-card__inner {
   display: grid;
   align-items: center;
   grid-template-columns: 1fr 1fr;
+  grid-template-areas: "title btn" "hours last";
   background-color: var(--neutral-navy-900);
-  padding: var(--padding-base);
+  padding: var(--padding-large);
   border-radius: var(--radius-large);
 }
-.filter-card .filter-card__inner--left {
+.filter-card .filter-card__inner:hover, .filter-card .filter-card__inner:focus-visible {
+  background-color: color-mix(in hsl, var(--neutral-navy-900), var(--neutral-purple-500) 45%);
+  cursor: pointer;
+}
+.filter-card .filter-card__inner--title {
   color: white;
+  grid-area: title;
+  margin-block-end: var(--margin-small);
 }
-.filter-card .filter-card__inner--left h2 {
-  font-weight: var(--font-weight-light);
-  font-size: var(--font-size-2x-large);
+.filter-card .filter-card__inner--hrs {
+  color: white;
+  font-size: var(--font-size-3x-large);
+  /* font-size: clamp(2rem, calc(2.25rem + 1.5vw), 2.5rem); */
+  font-weight: var(--font-weight-thin);
+  grid-area: hours;
 }
-.filter-card .filter-card__inner--left p {
-  font-weight: var(--font-weight-medium);
-}
-.filter-card .filter-card__inner--right {
-  display: grid;
-  gap: var(--padding-base);
-  justify-content: end;
-  justify-items: end;
-}
-.filter-card .filter-card__inner--right p {
+.filter-card .filter-card__inner--pre {
   color: var(--neutral-navy-200);
-  font-weight: var(--font-weight-light);
   font-size: var(--font-size-small);
+  grid-area: last;
+  justify-self: end;
+}
+@media (width >= 24rem) {
+  .filter-card .filter-card__inner {
+    grid-template-areas: "title btn" "hours hours" "last last";
+  }
+  .filter-card .filter-card__inner--hrs {
+    font-size: 2.75rem;
+  }
+  .filter-card .filter-card__inner--pre {
+    justify-self: start;
+  }
 }
 .filter-card button {
   text-decoration: none;
@@ -209,6 +260,8 @@ html {
   border: none;
   position: relative;
   fill: var(--neutral-navy-200);
+  grid-area: btn;
+  justify-self: end;
 }
 .filter-card button:hover, .filter-card button:focus-visible {
   fill: white;
@@ -216,11 +269,13 @@ html {
 }
 .filter-card button::before {
   content: "";
-  inset: -25px;
+  inset: -25px -15px;
   position: absolute;
 }
 
 .attribution {
+  margin-block-start: var(--margin-base);
+  color: white;
   font-size: 0.6875rem;
   text-align: center;
 }

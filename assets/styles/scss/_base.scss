@@ -90,12 +90,8 @@ ul{
 
 @mixin flex () {
   display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 @mixin grid () {
   display: grid;
-  align-content: center;
-  justify-items: center;
 }

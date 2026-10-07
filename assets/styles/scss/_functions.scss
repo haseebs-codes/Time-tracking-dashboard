@@ -8,3 +8,7 @@
   $light-complement: color.adjust($complement, $lightness: 30%);
   @return $light-complement;
 }
+//? Generate  a light version of a color //
+@function mix-color($base, $mix, $amount: 45%) {
+  @return color-mix(in hsl, #{$base}, #{$mix} #{$amount});
+}

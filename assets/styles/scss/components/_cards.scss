@@ -1,39 +1,50 @@
-@use '../variables' as *;
-@use '../functions' as *;
-@use '../base' as *;
-@use '../components/buttons' as *;
+@use "../variables" as *;
+@use "../functions" as *;
+@use "../base" as *;
+@use "../components/buttons" as *;
+@use "../breakpoints" as *;
 
 //? Profile Card
 @mixin card {
-
   //? Global Card Styles
   @include grid;
   background-color: var(--neutral-navy-900);
   border-radius: var(--radius-large);
-  margin: var(--margin-large);
   justify-items: stretch;
   grid-template-columns: minmax(0, 1fr);
   overflow: hidden;
 
+  @include respond(mobile) {
+    grid-template-rows: 1fr auto;
+  }
+
   //? Inner Card Styles
-  #{&}__inner{
+  #{&}__inner {
     @include flex;
+    align-items: center;
     justify-content: flex-start;
     gap: var(--padding-base);
     background-color: var(--primary-purple-600);
     padding: var(--padding-large);
     border-radius: var(--radius-large);
+
+    //? Media Query
+    @include respond(mobile) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--padding-large);
+    }
   }
 
   //? Profile Name Styles
-  #{&}__name{
+  #{&}__name {
     & p {
       color: var(--neutral-navy-200);
       font-size: var(--font-size-small);
     }
-    & h1{
+    & h1 {
       color: white;
-      font-size: var(--font-size-2x-large);
+      font-size: clamp(1rem, calc(1.25rem + 1.25vw), 2rem);
       font-weight: var(--font-weight-light);
     }
   }
@@ -46,68 +57,100 @@
   }
 
   //? Filter Button Styles
-  #{&}__filters{
+  #{&}__filters {
     @include flex;
     justify-content: space-evenly;
+
+    //? Media Query
+    @include respond(mobile) {
+      gap: var(--padding-base);
+      flex-direction: column;
+      align-items: flex-start;
+      padding: var(--padding-base) var(--padding-x-large);
+    }
 
     & button {
       @include btn;
       color: var(--neutral-navy-200);
       background: none;
       border: none;
-      &:hover, &:focus-visible {
+      &:hover,
+      &:focus-visible {
         color: white;
         outline: transparent;
+      }
+
+      //? Media Query
+      @include respond(mobile) {
+        padding: 0;
       }
     }
   }
 }
 
-@mixin filter-card  {
-  background:
-  top
-  -0.6rem
-  right
-  0.8rem
-  no-repeat
-  var(--primary-orange-300)
-  url(../../../../images/icon-work.svg);
+//? Filter Cards
+@mixin filter-card {
+  //? General Styles
+  background: top -0.6rem right 0.8rem no-repeat var(--primary-orange-300)
+    url(../../../../images/icon-work.svg);
   padding-block-start: var(--padding-2x-large);
   border-radius: var(--radius-large);
-  margin: var(--margin-large);
 
+  //? Inner Card
   #{&}__inner {
     display: grid;
     align-items: center;
     grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "title btn"
+      "hours last";
     background-color: var(--neutral-navy-900);
-    padding: var(--padding-base);
+    padding: var(--padding-large);
     border-radius: var(--radius-large);
-  }
-
-  #{&}__inner--left {
-    color: white;
-    & h2 {
-      font-weight: var(--font-weight-light);
-      font-size: var(--font-size-2x-large);
+    &:hover,
+    &:focus-visible {
+      background-color: mix-color(var(--neutral-navy-900), var(--neutral-purple-500));
+      cursor: pointer;
     }
-    & p {
-      font-weight: var(--font-weight-medium);
-    }
-  }
 
-  #{&}__inner--right {
-    display: grid;
-    gap: var(--padding-base);
-    justify-content: end;
-    justify-items: end;
-    & p {
+    &--title {
+      color: white;
+      grid-area: title;
+      margin-block-end: var(--margin-small);
+    }
+
+    &--hrs {
+      color: white;
+      font-size: var(--font-size-3x-large);
+      /* font-size: clamp(2rem, calc(2.25rem + 1.5vw), 2.5rem); */
+      font-weight: var(--font-weight-thin);
+      grid-area: hours;
+    }
+
+    &--pre {
       color: var(--neutral-navy-200);
-      font-weight: var(--font-weight-light);
-      font-size: var(--font-size-small)
+      font-size: var(--font-size-small);
+      grid-area: last;
+      justify-self: end;
+    }
+
+    @include respond(mobile) {
+      grid-template-areas:
+        "title btn"
+        "hours hours"
+        "last last";
+
+      &--hrs {
+        font-size: 2.75rem;
+      }
+
+      &--pre {
+        justify-self: start;
+      }
     }
   }
 
+  //? Button Styles
   & button {
     @include btn;
     padding: var(--padding-x-small) 0;
@@ -115,17 +158,19 @@
     border: none;
     position: relative;
     fill: var(--neutral-navy-200);
-    &:hover, &:focus-visible {
+    grid-area: btn;
+    justify-self: end;
+    &:hover,
+    &:focus-visible {
       fill: white;
       outline: transparent;
     }
 
     //? Expand the clickable area
     &::before {
-      content: '';
-      inset: -25px;
+      content: "";
+      inset: -25px -15px;
       position: absolute;
     }
   }
-
 }

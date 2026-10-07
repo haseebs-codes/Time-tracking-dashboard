@@ -9,11 +9,30 @@
 html {
   font-family: var(--font-family-main);
   @include flex;
+  justify-content: center;
+  align-items: center;
   min-height: 100dvh;
+  background-color: var(--neutral-navy-950);
+  padding: var(--padding-x-large);
+}
+
+main {
+  @include grid;
+  gap: var(--padding-base);
+  @include respond(tablet) {
+    justify-items: stretch;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--padding-x-large);
+    max-width: 65rem;
+  }
 }
 
 .profile-card {
   @include card;
+
+  @include respond(mobile) {
+    grid-row: span 2;
+  }
 }
 
 .filter-card {
@@ -21,5 +40,12 @@ html {
 }
 
 // Frontend Mentor attribution
-.attribution { font-size: 0.6875rem; text-align: center; }
-.attribution a { color: hsl(228, 45%, 44%); }
+.attribution {
+  margin-block-start: var(--margin-base);
+  color: white;
+  font-size: 0.6875rem;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
