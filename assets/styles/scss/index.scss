@@ -1,6 +1,6 @@
-@use 'global';
-@use 'components' as *;
-@use 'utils' as *;
+@use "global";
+@use "components" as *;
+@use "utils" as *;
 
 html {
   font-family: var(--font-family-main);
@@ -25,7 +25,6 @@ main {
 
 .profile-card {
   @include card;
-
   @include respond(mobile) {
     grid-row: span 2;
   }
@@ -33,6 +32,14 @@ main {
 
 .filter-card {
   @include filter-card;
+}
+
+//? Generate card styles based on the primary color map
+@each $key, $val in $primary-map {
+  .filter-card--#{$key} {
+    background-color: var(--primary-#{$key});
+    background-image: url(../../../images/icon-#{$key}.svg);
+  }
 }
 
 // Frontend Mentor attribution

@@ -88,8 +88,8 @@
 //? Filter Cards
 @mixin filter-card {
   //? General Styles
-  background: top -0.6rem right 0.8rem no-repeat var(--primary-orange-300)
-    url(../../../../images/icon-work.svg);
+  background-position: top -0.6rem right 0.8rem;
+  background-repeat: no-repeat;
   padding-block-start: var(--padding-2x-large);
   border-radius: var(--radius-large);
 
@@ -119,7 +119,6 @@
     &--hrs {
       color: white;
       font-size: var(--font-size-3x-large);
-      /* font-size: clamp(2rem, calc(2.25rem + 1.5vw), 2.5rem); */
       font-weight: var(--font-weight-thin);
       grid-area: hours;
     }

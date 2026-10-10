@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
 :root {
   --primary-purple-600: hsl(246, 80%, 60%);
-  --primary-orange-300: hsl(15, 100%, 70%);
+  --primary-work: hsl(15, 100%, 70%);
   --neutral-navy-950: hsl(226, 43%, 10%);
   --neutral-navy-900: hsl(235, 46%, 20%);
   --neutral-purple-500: hsl(235, 45%, 61%);
@@ -179,7 +179,8 @@ main {
 }
 
 .filter-card {
-  background: top -0.6rem right 0.8rem no-repeat var(--primary-orange-300) url(../../../../images/icon-work.svg);
+  background-position: top -0.6rem right 0.8rem;
+  background-repeat: no-repeat;
   padding-block-start: var(--padding-2x-large);
   border-radius: var(--radius-large);
 }
@@ -204,7 +205,6 @@ main {
 .filter-card .filter-card__inner--hrs {
   color: white;
   font-size: var(--font-size-3x-large);
-  /* font-size: clamp(2rem, calc(2.25rem + 1.5vw), 2.5rem); */
   font-weight: var(--font-weight-thin);
   grid-area: hours;
 }
@@ -250,6 +250,11 @@ main {
   content: "";
   inset: -25px -15px;
   position: absolute;
+}
+
+.filter-card--work {
+  background-color: var(--primary-work);
+  background-image: url(../../../images/icon-work.svg);
 }
 
 .attribution {
