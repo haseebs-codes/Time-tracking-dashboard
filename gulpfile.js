@@ -8,7 +8,10 @@ const sass = gulpSass(dartSass);
 function buildStyles() {
   return src('assets/styles/scss/**/*.scss')
     .pipe(sass())
-    .pipe(purgecss({ content: ['*.html'] }))
+    .pipe(purgecss({
+      content: ['*.html'],
+      variables: true
+    }))
     .pipe(dest('assets/styles/css'))
 }
 

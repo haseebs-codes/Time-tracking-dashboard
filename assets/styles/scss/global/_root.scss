@@ -1,0 +1,21 @@
+@use '../utils' as *;
+
+:root{
+  @each $group, $shades in $colors {
+    @each $key, $val in $shades {
+      --#{$group}-#{$key}: #{$val};
+    }
+  }
+
+  @each $group, $sizes in $font{
+    @each $key, $val in $sizes{
+      --#{$group}-#{$key}: #{$val};
+    }
+  }
+
+  @each $group, $size in $sizes {
+    @each $key, $val in $size{
+      --#{$group}-#{$key}: #{$val};
+    }
+  }
+}

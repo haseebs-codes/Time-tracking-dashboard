@@ -1,19 +1,5 @@
+@use '../utils' as *;
 @use 'sass:map';
-
-$utilities: (
-  display: (
-    "prefix": "display",
-    "values": (
-      "n": none,
-      "b": block,
-      "f": flex,
-      "g": grid,
-      "i": inline,
-      "i-b": inline-block,
-    ),
-  )
-);
-
 
 // Generate Utility Classes //
 @each $property, $map in $utilities {
@@ -29,6 +15,19 @@ $utilities: (
       .#{$prefix}-#{$k}{
         #{$property}: $v;
       }
+    }
+  }
+}
+
+// Loop through the colors map and generate text and bg colors //
+@each $group, $shades in $colors {
+  @each $key, $val in $shades {
+    .text-#{$key} {
+      color: $val;
+    }
+
+    .bg-#{$key} {
+      background-color: $val;
     }
   }
 }

@@ -1,5 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
-
 $colors: (
     primary: (
     'purple-600': hsl(246, 80%, 60%),
@@ -76,21 +74,20 @@ $sizes: (
   )
 );
 
+$utilities: (
+  display: (
+    "prefix": "display",
+    "values": (
+      "n": none,
+      "b": block,
+      "f": flex,
+      "g": grid,
+      "i": inline,
+      "i-b": inline-block,
+    ),
+  )
+);
+
 $base-shadow: -0.2em 0.8em 2em 	hsl(0 0% 0% / 0.2);
 $base-border-thickness: 0.06rem;
 $gradient-background: linear-gradient(90deg, hsl(0 0% 20%), hsl(0 0% 40%));
-
-
-// Loop through the colors map and generate text and bg colors //
-@each $group, $shades in $colors {
-  @each $key, $val in $shades {
-    .text-#{$key} {
-      color: $val;
-    }
-
-    .bg-#{$key} {
-      background-color: $val;
-    }
-  }
-}
-

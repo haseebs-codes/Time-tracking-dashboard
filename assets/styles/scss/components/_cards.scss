@@ -1,8 +1,5 @@
-@use "../variables" as *;
-@use "../functions" as *;
-@use "../base" as *;
-@use "../components/buttons" as *;
-@use "../breakpoints" as *;
+@use '../utils' as *;
+@use './buttons' as *;
 
 //? Profile Card
 @mixin card {

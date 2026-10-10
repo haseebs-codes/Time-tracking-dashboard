@@ -1,33 +1,12 @@
-@use './variables' as *;
-
-// Looping through the map to generate custom CSS properties //
-
-:root{
-  @each $group, $shades in $colors {
-    @each $key, $val in $shades {
-      --#{$group}-#{$key}: #{$val};
-    }
-  }
-
-  @each $group, $sizes in $font{
-    @each $key, $val in $sizes{
-      --#{$group}-#{$key}: #{$val};
-    }
-  }
-
-  @each $group, $size in $sizes {
-    @each $key, $val in $size{
-      --#{$group}-#{$key}: #{$val};
-    }
-  }
-}
-
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 
 /* Josh Comeau Reset
  https://www.joshwcomeau.com/css/custom-css-reset/ */
 
 // more-intuitive box-sizing model //
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -38,12 +17,12 @@
 
 // enable keyword animation //
 @media (prefers-reduced-motion: no-preference) {
-  html{
+  html {
     interpolate-size: allow-keywords;
   }
 }
 
-body{
+body {
   // increase line-height //
   line-height: 1.5;
 
@@ -52,18 +31,31 @@ body{
 }
 
 // improve media defaults //
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
 // inherit fonts for form controls
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 
 // avoid text overflows //
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 
@@ -71,27 +63,24 @@ p, h1, h2, h3, h4, h5, h6 {
 p {
   text-wrap: pretty;
 }
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   text-wrap: balance;
 }
 
 // create a root stacking context //
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
 // remove default list styling
-ul{
+ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-
-@mixin flex () {
-  display: flex;
-}
-
-@mixin grid () {
-  display: grid;
 }

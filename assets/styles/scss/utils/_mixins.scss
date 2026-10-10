@@ -1,15 +1,6 @@
+@use './functions' as *;
+@use './breakpoints' as *;
 @use 'sass:map';
-
-$breakpoints: (
-  mobile: 24rem,
-  tablet: 48rem,
-  desktop: 64rem
-);
-
-
-@function get-breakpoint ($breakpoint) {
-  @return map.get($breakpoints , $breakpoint);
-}
 
 @mixin respond($breakpoint) {
   @if map.has-key($breakpoints , $breakpoint) {
@@ -19,5 +10,12 @@ $breakpoints: (
   } @else {
     @warn "Wrong breakpoint `#{$breakpoint}`";
   }
-    
+}
+
+@mixin flex () {
+  display: flex;
+}
+
+@mixin grid () {
+  display: grid;
 }

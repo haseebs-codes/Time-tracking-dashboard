@@ -1,10 +1,6 @@
-@use "./variables" as *;
-@use "./breakpoints" as *;
-@use "./utilities" as *;
-@use "./base" as *;
-@use "./functions" as *;
-@use "./components/buttons" as *;
-@use "./components/cards" as *;
+@use 'global';
+@use 'components' as *;
+@use 'utils' as *;
 
 html {
   font-family: var(--font-family-main);
