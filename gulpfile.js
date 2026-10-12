@@ -9,8 +9,10 @@ function buildStyles() {
   return src('assets/styles/scss/**/*.scss')
     .pipe(sass())
     .pipe(purgecss({
-      content: ['*.html'],
-      variables: true
+      content: ['*.html', 'assets/js/*.js'],
+      safelist: {
+        greedy: [/^filter-card--/]
+      }
     }))
     .pipe(dest('assets/styles/css'))
 }
