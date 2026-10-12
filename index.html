@@ -31,91 +31,14 @@
           </div>
         </div>
         <div class="profile-card__filters">
-          <button>Daily</button>
-          <button>Weekly</button>
-          <button>Monthly</button>
+          <button aria-pressed="false" data-filter="daily" class="js-filter-btn">Daily</button>
+          <button aria-pressed="true" data-filter="weekly" class="js-filter-btn active">Weekly</button>
+          <button aria-pressed="false" data-filter="monthly" class="js-filter-btn">Monthly</button>
         </div>
       </section>
 
-      <section class="filter-card filter-card--work">
-        <div class="filter-card__inner">
-          <p class="filter-card__inner--title">Work</p>
-          <h2 class="filter-card__inner--hrs">32hrs</h2>
-          <button class="filter-card__inner--btn">
-            <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-              <path
-                d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-                fill-rule="evenodd" />
-            </svg>
-          </button>
-          <p class="filter-card__inner--pre">Last Week - 36hrs</p>
-        </div>
+      <section class="js-filter-grid filter-grid">
       </section>
-
-      <!-- <section class="play">
-          <p>Play</p>
-        <h2>10hrs</h2>
-        <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-            fill="#BBC0FF"
-            fill-rule="evenodd"
-          />
-        </svg>
-        <p>Last Week - 8hrs</p>
-      </section> -->
-
-      <!-- <section class="study">
-        <p>Study</p>
-        <h2>4hrs</h2>
-        <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-            fill="#BBC0FF"
-            fill-rule="evenodd"
-          />
-        </svg>
-        <p>Last Week - 7hrs</p>
-      </section> -->
-
-      <!-- <section class="exercise">
-        <p>Exercise</p>
-        <h2>4hrs</h2>
-        <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-            fill="#BBC0FF"
-            fill-rule="evenodd"
-          />
-        </svg>
-        <p>Last Week - 5hrs</p>
-      </section> -->
-
-      <!-- <section class="social">
-        <p>Social</p>
-        <h2>5hrs</h2>
-        <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-            fill="#BBC0FF"
-            fill-rule="evenodd"
-          />
-        </svg>
-        <p>Last Week - 10hrs</p>
-      </section> -->
-
-      <!-- <section class="selfcare">
-        <p>Self Care</p>
-        <h2>2hrs</h2>
-        <svg width="21" height="5" xmlns="http://www.w3.org/2000/svg">
-          <path
-            d="M2.5 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Zm8 0a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5Z"
-            fill="#BBC0FF"
-            fill-rule="evenodd"
-          />
-        </svg>
-        <p>Last Week - 2hrs</p>
-      </section> -->
     </main>
     <footer class="attribution">
       Challenge by

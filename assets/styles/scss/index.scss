@@ -14,20 +14,25 @@ html {
 
 main {
   @include grid;
-  gap: var(--padding-base);
+  gap: var(--padding-large);
+  max-width: 60rem;
+  @include respond(tablet) {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.filter-grid {
+  @include grid;
+  gap: var(--padding-large);
   @include respond(tablet) {
     justify-items: stretch;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--padding-x-large);
+    grid-template-columns: repeat(3, 1fr);
     max-width: 65rem;
   }
 }
 
 .profile-card {
   @include card;
-  @include respond(mobile) {
-    grid-row: span 2;
-  }
 }
 
 .filter-card {

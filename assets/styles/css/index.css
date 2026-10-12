@@ -2,24 +2,52 @@
 :root {
   --primary-purple-600: hsl(246, 80%, 60%);
   --primary-work: hsl(15, 100%, 70%);
+  --primary-play: hsl(195, 74%, 62%);
+  --primary-study: hsl(348, 100%, 68%);
+  --primary-exercise: hsl(145, 58%, 55%);
+  --primary-social: hsl(264, 64%, 52%);
+  --primary-self-care: hsl(43, 84%, 65%);
   --neutral-navy-950: hsl(226, 43%, 10%);
   --neutral-navy-900: hsl(235, 46%, 20%);
   --neutral-purple-500: hsl(235, 45%, 61%);
   --neutral-navy-200: hsl(236, 100%, 87%);
+  --error-bg: hsl(5, 100%, 95%);
+  --error-text: hsl(4, 100%, 67%);
   --font-family-main: Rubik, sans-serif;
+  --font-size-x-small: 0.6875rem;
   --font-size-small: 0.75rem;
+  --font-size-base: 1.125rem;
+  --font-size-large: 1.125rem;
+  --font-size-x-large: 1.25rem;
+  --font-size-2x-large: 1.5rem;
   --font-size-3x-large: 1.875rem;
+  --font-size-4x-large: 2rem;
   --font-weight-thin: 100;
+  --font-weight-x-light: 200;
   --font-weight-light: 300;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-x-bold: 800;
+  --font-weight-2x-bold: 900;
   --padding-x-small: 0.25em;
+  --padding-small: 0.5em;
   --padding-base: 1em;
   --padding-large: 1.5em;
   --padding-x-large: 2em;
   --padding-2x-large: 2.5em;
+  --margin-x-small: 0.25rem;
   --margin-small: 0.5rem;
   --margin-base: 1rem;
+  --margin-large: 1.5rem;
+  --margin-x-large: 2rem;
+  --margin-2x-large: 2.5rem;
   --radius-small: 8px;
+  --radius-base: 12px;
   --radius-large: 16px;
+  --radius-x-large: 20px;
+  --radius-2x-large: 28px;
   --radius-full: 50%;
 }
 
@@ -84,13 +112,23 @@ html {
 
 main {
   display: grid;
-  gap: var(--padding-base);
+  gap: var(--padding-large);
+  max-width: 60rem;
 }
 @media (width >= 48rem) {
   main {
+    grid-template-columns: 1fr 3fr;
+  }
+}
+
+.filter-grid {
+  display: grid;
+  gap: var(--padding-large);
+}
+@media (width >= 48rem) {
+  .filter-grid {
     justify-items: stretch;
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--padding-x-large);
+    grid-template-columns: repeat(3, 1fr);
     max-width: 65rem;
   }
 }
@@ -159,9 +197,12 @@ main {
   border-radius: var(--radius-small);
   background-color: #e2e2e2;
   transition: 0.2s;
-  color: var(--neutral-navy-200);
+  color: color-mix(in hsl, var(--neutral-navy-900), var(--neutral-purple-500) 45%);
   background: none;
   border: none;
+}
+.profile-card .profile-card__filters button.active {
+  color: white;
 }
 .profile-card .profile-card__filters button:hover, .profile-card .profile-card__filters button:focus-visible {
   color: white;
@@ -170,11 +211,6 @@ main {
 @media (width >= 24rem) {
   .profile-card .profile-card__filters button {
     padding: 0;
-  }
-}
-@media (width >= 24rem) {
-  .profile-card {
-    grid-row: span 2;
   }
 }
 
@@ -200,10 +236,12 @@ main {
 .filter-card .filter-card__inner--title {
   color: white;
   grid-area: title;
+  white-space: nowrap;
   margin-block-end: var(--margin-small);
 }
 .filter-card .filter-card__inner--hrs {
   color: white;
+  white-space: nowrap;
   font-size: var(--font-size-3x-large);
   font-weight: var(--font-weight-thin);
   grid-area: hours;
@@ -213,6 +251,7 @@ main {
   font-size: var(--font-size-small);
   grid-area: last;
   justify-self: end;
+  white-space: nowrap;
 }
 @media (width >= 24rem) {
   .filter-card .filter-card__inner {
@@ -252,9 +291,39 @@ main {
   position: absolute;
 }
 
+.filter-card--purple-600 {
+  background-color: var(--primary-purple-600);
+  background-image: url(../../../images/icon-purple-600.svg);
+}
+
 .filter-card--work {
   background-color: var(--primary-work);
   background-image: url(../../../images/icon-work.svg);
+}
+
+.filter-card--play {
+  background-color: var(--primary-play);
+  background-image: url(../../../images/icon-play.svg);
+}
+
+.filter-card--study {
+  background-color: var(--primary-study);
+  background-image: url(../../../images/icon-study.svg);
+}
+
+.filter-card--exercise {
+  background-color: var(--primary-exercise);
+  background-image: url(../../../images/icon-exercise.svg);
+}
+
+.filter-card--social {
+  background-color: var(--primary-social);
+  background-image: url(../../../images/icon-social.svg);
+}
+
+.filter-card--self-care {
+  background-color: var(--primary-self-care);
+  background-image: url(../../../images/icon-self-care.svg);
 }
 
 .attribution {
